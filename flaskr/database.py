@@ -7,8 +7,11 @@ engine = create_engine('mysql+pymysql://root:Cook21!!@cook0422.mysql.rds.aliyunc
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
+
+a = db_session()
 Base = declarative_base()
 Base.query = db_session.query_property()
+
 
 def init_db():
     # 在这里导入定义模型所需要的所有模块，这样它们就会正确的注册在
